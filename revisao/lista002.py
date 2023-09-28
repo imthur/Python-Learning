@@ -1,3 +1,8 @@
+'''
+Crie um código que leia um número
+diferente de zero e diga se este número
+é positivo ou negativo
+'''
 rep = 's'
 while rep.lower() == 's':
     while True:

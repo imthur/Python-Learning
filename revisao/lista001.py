@@ -1,3 +1,7 @@
+'''
+Faça um algoritmo que receba 2
+notas e calcule a média aritmética 
+'''
 rep = 's'
 while rep.lower() == 's':
     n1 = float(input('Digite a primeira nota: '))

@@ -1,3 +1,4 @@
+print('[PEDRA PAPEL E TESOURA]')
 print('DIGITE APENAS LETRAS MINÚSCULAS.')
 jogo = ['p', 'pp', 't']
 while True:

@@ -1,17 +1,17 @@
 nome1 = input('(Usuário 1) Digite seu nome: ')
 nome2 = input('(Usuário 2) Digite seu nome: ')
 loop = 's'
-while loop == 's':
-    print(f'[PEDRA PAPEL E TESOURA] \n DIGITE APENAS LETRAS MINÚSCULAS.')
+while loop.lower() == 's':
+    print(f'[PEDRA PAPEL E TESOURA].')
     jogo = ['p', 'pp', 't']
     while True:
-        p1 = input('Usuário 1, digite "p" para pedra, "pp" para papel ou "t" para tesoura: ')
+        p1 = input('Usuário 1, digite "p" para pedra, "pp" para papel ou "t" para tesoura: ').lower()
         if p1 not in jogo:
             print('Você digitou um caractere inválido, tente novamente.')
         else:
             break
     while True:
-        p2 = input('Usuário 2, digite "p" para pedra, "pp" para papel ou "t" para tesoura: ')
+        p2 = input('Usuário 2, digite "p" para pedra, "pp" para papel ou "t" para tesoura: '.lower()
         if p1 not in jogo:
             print('Você digitou um caractere inválido, tente novamente.')
         else:

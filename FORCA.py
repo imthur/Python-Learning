@@ -75,4 +75,4 @@ while loop:
     questao = input('Deseja jogar novamente? (s/n): ')
     if questao.lower() == 'n':
         loop = False
-    print('Programa finalizado! Obrigado por jogar.')
+print('Programa finalizado! Obrigado por jogar.')

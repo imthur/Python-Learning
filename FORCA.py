@@ -16,6 +16,14 @@ def boneco(chances):
         return f'___\n   O \n  /|\\\n  / '
     if chances == 0:
         return f'___\n   O \n  /|\\\n  /\ '
+def palavraOculta(palavra, acertos):
+    resultado = ''
+    for letra in palavra:
+        if letra in acertos:
+            resultado += letra + ' '
+        else:
+            resultado += '_ '
+    return resultado
 while loop:
     print('===============JOGO DA FORCA===============')
     frutas = ['MORANGO', 'ABACAXI', 'MAMAO', 'PERA', 'UVA', 'MANGA']
@@ -35,14 +43,6 @@ while loop:
     chances = 6
     acertos = []
     erros = []
-    def palavraOculta(palavra, acertos):
-        resultado = ''
-        for letra in palavra:
-            if letra in acertos:
-                resultado += letra + ' '
-            else:
-                resultado += '_ '
-        return resultado
     while chances > 0:
         print(dica)
         print(f'{palavraOculta(palavra, acertos)}')

@@ -1,6 +1,7 @@
 import random
 from biblioteca import frutas, objetos, transporte, paises
 loop = True
+usuario = input('Digite seu nome: ')
 vitorias = 0
 derrotas = 0
 alfabeto = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
@@ -29,8 +30,9 @@ def palavraOculta(palavra, acertos):
     return resultado
 while loop:
     print('===============JOGO DA FORCA===============')
-    todasAsPalavras = frutas + objetos + transporte + paises
-    palavra = random.choice(todasAsPalavras)
+    palavras = frutas + objetos + transporte + paises
+    palavra = random.choice(palavras)
+    palavras.remove(palavra)
     if palavra in frutas:
         dica = 'Dica: é uma fruta.'
     if palavra in objetos:
@@ -62,7 +64,7 @@ while loop:
         if tentativa in palavra:
             acertos.append(tentativa)
             if all(letra in acertos for letra in palavra):
-                print(f'Parabéns, você ganhou! A palavra era: {palavra}.')
+                print(f'Parabéns, você acertou! A palavra era: {palavra}.')
                 vitorias += 1
                 break
         else:
@@ -71,10 +73,13 @@ while loop:
             print(f'Letra incorreta.')
         print(boneco(chances))
     if chances == 0:
-        print(f'Você perdeu! A palavra era: {palavra}.')
+        print(f'Você errou! A palavra era: {palavra}.')
         derrotas += 1
-    print(f'Sua pontuação é:\nVitórias: {vitorias}\nDerrotas: {derrotas}')
+    print(f'========PONTUAÇÃO========'
+          f'\nusuario: {usuario}'
+          f'\nVitórias: {vitorias}\nDerrotas: {derrotas}')
     questao = input('Deseja jogar novamente? (s/n): ')
     if questao.lower() == 'n':
         loop = False
 print('Programa finalizado! Obrigado por jogar.')
+print(f'Sua pontuação final foi de:\nVitórias: {vitorias}\nDerrotas: {derrotas}')

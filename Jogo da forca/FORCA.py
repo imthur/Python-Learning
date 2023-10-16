@@ -1,6 +1,6 @@
 import random
 import time
-from biblioteca import frutas, objetos, transporte, paises
+from biblioteca import frutas, objetos, paises, profissoes, esportes, boneco
 loop = True
 import os
 ganhou = 'n'
@@ -12,21 +12,6 @@ def clear():
         os.system('cls')
     else:
         os.system('clear')
-def boneco(chances):
-    if chances == 6:
-        return f'___'
-    if chances == 5:
-        return f'___\n   O\n\n'
-    if chances == 4:
-        return f'___\n   O \n   |\n'
-    if chances == 3:
-        return f'___\n   O \n  /|\n'
-    if chances == 2:
-        return f'___\n   O \n  /|\ \n'
-    if chances == 1:
-        return f'___\n   O \n  /|\\\n  / \n'
-    if chances == 0:
-        return f'___\n   O \n  /|\\\n  /\ \n'
 def palavraOculta(palavra, acertos):
     resultado = ''
     for letra in palavra:
@@ -37,26 +22,27 @@ def palavraOculta(palavra, acertos):
     return resultado
 print('JOGO DA FORCA'.center(19, '='))
 print('Seja bem-vindo!'.center(19))
-usuario = input('Digite seu nome: ')
+usuario = input('Digite seu nome: ').title()
 clear()
 while loop:
     chances = 6
     acertos = []
     erros = []
     print('JOGO DA FORCA'.center(19, '='))
-    print(boneco(chances))
-    todasAsPalavras = frutas + objetos + transporte + paises
+    todasAsPalavras = frutas + objetos + paises + profissoes + esportes
     palavra = random.choice(todasAsPalavras)
     if palavra in frutas:
         dica = 'Dica: é uma fruta.'
     if palavra in objetos:
         dica = 'Dica: é um objeto.'
-    if palavra in transporte:
-        dica = 'Dica: é um meio de transporte.'
     if palavra in paises:
         dica = 'Dica: é um país.'
+    if palavra in profissoes:
+        dica = 'Dica: é uma profissão.'
+    if palavra in esportes:
+        dica = 'Dica: é um esporte.'
     while chances > 0:
-
+        print(boneco(chances))
         print(dica)
         print()
         print(f'{palavraOculta(palavra, acertos)}'.center(19))
@@ -79,6 +65,7 @@ while loop:
         if tentativa in palavra:
             acertos.append(tentativa)
             if all(letra in acertos for letra in palavra):
+                clear()
                 print(f'Parabéns, você ganhou! A palavra era: {palavra}.')
                 vitorias += 1
                 break

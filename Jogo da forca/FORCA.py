@@ -2,8 +2,7 @@ import random
 import time
 from biblioteca import frutas, objetos, paises, profissoes, esportes, boneco
 loop = True
-import os
-ganhou = 'n'
+import os
 vitorias = 0
 derrotas = 0
 alfabeto = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']

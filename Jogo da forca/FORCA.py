@@ -1,25 +1,10 @@
 import random
 import time
-from biblioteca import frutas, objetos, paises, profissoes, esportes, boneco, score, cabecI, cabec
+from biblioteca import frutas, objetos, paises, profissoes, esportes, boneco, score, cabecI, cabec, alfabeto, clear, palavraOculta
 loop = True
 import os
-ganhou = 'n'
 vitorias = 0
 derrotas = 0
-alfabeto = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
-def clear():
-    if os.name == 'nt':
-        os.system('cls')
-    else:
-        os.system('clear')
-def palavraOculta(palavra, acertos):
-    resultado = ''
-    for letra in palavra:
-        if letra in acertos:
-            resultado += letra + ' '
-        else:
-            resultado += '_ '
-    return resultado
 cabecI()
 while True:
     usuario = input('Digite seu nome: ').title()

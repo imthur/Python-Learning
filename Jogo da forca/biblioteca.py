@@ -1,8 +1,26 @@
+import os
 frutas = ['MORANGO', 'ABACAXI', 'MAMAO', 'PERA', 'UVA', 'MANGA', 'LARANJA', 'MACA', 'BANANA', 'KIWI', 'ABACATE', 'ABACAXI', 'AMEIXA', 'MELANCIA', 'PESSEGO', 'LIMAO', 'FIGO', 'COCO']
 objetos = ['FACA', 'TESOURA', 'LAPIS', 'PORTA', 'CADEIRA', 'MESA', 'CANETA', 'CADERNO', 'CELULAR', 'TELEVISAO', 'CARRO', 'BICICLETA', 'ANEL', 'OCULOS', 'RELOGIO', 'CHAVE', 'MARTELO', 'COLHER', 'GARRAFA', 'XICARA']
 paises = ['BRASIL', 'VENEZUELA', 'ESPANHA', 'INGLATERRA', 'COLOMBIA', 'CUBA', 'CHINA', 'INDIA', 'INDONESIA', 'PAQUISTAO', 'NIGERIA', 'RUSSIA', 'MEXICO', 'JAPAO', 'ETIOPIA', 'EGITO', 'VIETNA', 'TAILANDIA', 'ARGENTINA', 'PERU']
 profissoes = ['MEDICO', 'ENGENHEIRO', 'ADVOGADO', 'PROFESSOR', 'MUSICO', 'ARTISTA', 'ATLETA', 'COZINHEIRO', 'BOMBEIRO', 'POLICIAL', 'ELETRICISTA', 'FOTOGRAFO', 'CIENTISTA', 'PSICOLOGO', 'JORNALISTA', 'ARQUITETO', 'FARMACEUTICO', 'PILOTO', 'VETERINARIO', 'DENTISTA']
 esportes = ['FUTEBOL', 'BASQUETE', 'TENIS', 'NATACAO', 'VOLEI', 'GINASTICA', 'ATLETISMO', 'HANDEBOL', 'CICLISMO', 'SURF', 'ESCALADA', 'SKATE', 'GOLFE', 'JUDO', 'BOXE', 'FUTSAL', 'MMA', 'BEISEBOL', 'RUGBY']
+alfabeto = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
+
+def palavraOculta(palavra, acertos):
+    resultado = ''
+    for letra in palavra:
+        if letra in acertos:
+            resultado += letra + ' '
+        else:
+            resultado += '_ '
+    return resultado
+
+def clear():
+    if os.name == 'nt':
+        os.system('cls')
+    else:
+        os.system('clear')
+
 def boneco(chances):
     if chances == 6:
         return f'_____\n|\n|\n|'
@@ -43,9 +61,10 @@ def cabecI():
         print(f'+{"-" * tam}+')
         print(f'|{"JOGO DA FORCA":^{tam}}|')
         print(f'+{"-" * tam}+')
-        print(f'|{f"      Seja bem vindo(a)":{tam}}|')
+        print(f'|{f"Seja bem vindo(a)":{tam}}|')
         print(f"+{'-' * tam}+")
         break
+
 def cabec():
     tam = 30
 

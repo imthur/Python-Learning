@@ -1,8 +1,9 @@
 import random
 import time
-from biblioteca import frutas, objetos, paises, profissoes, esportes, boneco
+from biblioteca import frutas, objetos, paises, profissoes, esportes, boneco, score, cabecI, cabec
 loop = True
-import os
+import os
+ganhou = 'n'
 vitorias = 0
 derrotas = 0
 alfabeto = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
@@ -19,15 +20,19 @@ def palavraOculta(palavra, acertos):
         else:
             resultado += '_ '
     return resultado
-print('JOGO DA FORCA'.center(19, '='))
-print('Seja bem-vindo!'.center(19))
-usuario = input('Digite seu nome: ').title()
+cabecI()
+while True:
+    usuario = input('Digite seu nome: ').title()
+    if len(usuario) > 20:
+        print('Nome muito longo (MÁX 20 LETRAS).')
+    else:
+        break
 clear()
 while loop:
     chances = 6
     acertos = []
     erros = []
-    print('JOGO DA FORCA'.center(19, '='))
+    cabec()
     todasAsPalavras = frutas + objetos + paises + profissoes + esportes
     palavra = random.choice(todasAsPalavras)
     if palavra in frutas:
@@ -58,14 +63,19 @@ while loop:
             if c > 1:
                 print('Você digitou mais de uma letra ou um caractere inválido. Tente novamente!')
             elif tentativa in acertos or tentativa in erros:
+                clear()
                 print(f'A letra {tentativa} já foi digitada, tente novamente!')
+                print(boneco(chances))
+                print(dica)
+                print()
+                print(f'{palavraOculta(palavra, acertos)}'.center(19))
             else:
                 break
         if tentativa in palavra:
             acertos.append(tentativa)
             if all(letra in acertos for letra in palavra):
                 clear()
-                print(f'Parabéns, você ganhou! A palavra era: {palavra}.')
+                print(f'Parabéns, você ganhou! A palavra era: \033[1;31m{palavra}.\033[0m')
                 vitorias += 1
                 break
         else:
@@ -77,12 +87,12 @@ while loop:
     if chances == 0:
         print(f'Você perdeu! A palavra era: {palavra}.')
         derrotas += 1
-    print('PONTUAÇÃO'.center(30, '='))
-    print(f'Usuário: {usuario}')
-    print(f'\nVitórias: {vitorias}\nDerrotas: {derrotas}')
+    score(usuario, vitorias, derrotas)
     questao = input('Deseja jogar novamente? (s/n): ')
     if questao.lower() == 'n':
         loop = False
     else:
         clear()
+clear()
 print('Programa finalizado! Obrigado por jogar.')
+time.sleep(3)
